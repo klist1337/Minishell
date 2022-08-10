@@ -1,0 +1,107 @@
+cmd [arg]* ; cmd [arg]
+
+cmd [arg]* [ | cmd [arg]* ]*  
+          [ [> filename] [< filename] [ >& filename] [>> filename] [>>& filename] ]* [&] 
+<file echo hi
+ls | cmd > files
+
+cmd [arg*] pour 0 ou plusieurs arguments;
+[| cmd [arg]*]* pour les sous commandes avec 0 ou plusieurs arguments
+[> filename] pour 0 ou 1 un fichier de redirection  
+
+Les differents tokens que je peux avoir
+< la commande >
+<les arguments>
+<les pipes '|'>
+<les new lines '\n'>
+<les tab \t>
+<les great '>' >
+<les less '<' >
+<les greatgreat  ">>" >
+<Heredoc "<<" >
+<les greatampersand ">&" >
+<les dollars $>
+<les dollars $?>
+
+
+
+ls | grep lib > a
+should be output the file of grep 
+minishell> ls | grep lib > a
+minishell> libft.a
+
+cmd->arg = "git"
+cmd->args->arg = "commit"
+-m
+cmd->next->args->arg = "just"
+cmd->next->next->args->arg = "a"
+.
+.
+.
+cmd->next->args->arg = "just a commit"
+
+
+echo "this is" just a test
+
+cmd->args[0] = "this is"
+cmd->args[1] = "just"
+cmd->args[2] = "a"
+cmd->args[3] = "test"
+
+
+cmd->args[0] = "git";
+cmd->args[1] = "commit"
+cmd->args[2] = "-m"
+cmd->args[3] = "just a commit"
+
+
+git commit -m "this is a commit" "
+
+cmd->args = commit -m this is a commit
+indexes[0] = 16;
+indexes[1] = 32;
+
+
+
+
+args = commit -m stlkjs lksjf 
+
+
+git commit -m "slkjslkjs lskjdlfj" "lkjsd lsjl" | ls -li | grep lib
+
+cmd1->arg->content = commit;
+cmd1->arg->next->content = -m;
+cmd1->arg->next->next->content = slkjslkjs lskjdlfj;
+cmd1->arg->next->next->next->content = lkjsd lsjl;
+cmd1->arg->next->next->next->next = NULL;
+
+
+cmd2->arg->content = li;
+cmd2->args->next = NULL;
+
+
+cmd3-arg->content = lib;
+cmd3->args->next = NULL;
+
+cmd1 | cmd2 > a b > c > b > c
+cmd1 > cmd2 > a | cmd3 > c > b > c
+
+< Makefile ls | grep mandatory
+< Makefile ls > file [ls-arg] > file2 | grep mandatory | 
+< Makefile ls -l > a b | grep b > ghg ls -g >
+< Makefile > ls > -l | grep mandatory > a g f > b > c | cmd -f | cmd file
+< Makefile ls -l > a b > c d | grep b
+cmd > file | cmd2 | cmd3 > file2
+cmd1 | cmd2 > a 
+cmd1 | cmd2 > a | cmd > b
+cmd1 | cmd2 > a b | cmd 
+cmd1 | cmd2 > a > b | cmd
+bash-3.2$ ouput the result in b
+cmd1| cmd2 
+
+<< ls > a cmd > b > cmd > ff |> file > cmd |> file > hj cm > f | cmd2  | bmb |>
+<< ls ls > a cmd > b > cmd > ff |> file cmd |> file
+<< ls |> [file1 cmd=cmd1 > [file2 cmd2 = cmd2] [arg_cmd] |> [file2 cmd= NULL]
+<< ls |> file cmd < file
+<< ls > a | b < cmd > ff |> file cmd 
+<< ls | a arg | b args > g |> c 
