@@ -1,6 +1,6 @@
 # Minishell
 
-This Minishell a program like bash.. Enjoy our Minishell
+This is a minishell a program like bash writing in C langage.. Please enjoy our Minishell :)
 
 ![Minishell image](Minishellimg.png)
 
